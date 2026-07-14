@@ -14,24 +14,37 @@ app.use(express.json());
 
 // so ekhon amra (param niye kaj korbo)
 
-app.param("id", (req, res, next, id) => {
-  const user = {
-    userid: id,
-    name: "Bangladesh",
-  };
+// app.param("id", (req, res, next, id) => {
+//   const user = {
+//     userid: id,
+//     name: "Bangladesh",
+//   };
 
-  req.userDetails = user;
-  next();
-});
+//   req.userDetails = user;
+//   next();
+// });
 
 // app.get("/", (req, res) => {
 //   res.send("This is how server is start");
 // });
 
-app.get("/user/:id", (req, res) => {
-  console.log(req.userDetails);
-  res.send("welcome to our application");
-});
+// app.get("/user/:id", (req, res) => {
+//   console.log(req.userDetails);
+//   res.send("welcome to our application");
+// });
+
+// 2: so ekhon amra (route) method somporke janbo, ekhane route method dara app.route use kore nicher ek route e sob get,put,post, etc sob ek route e korte parbo
+app
+  .route("/about/mission")
+  .get((req, res) => {
+    res.send("Welcome to the get");
+  })
+  .post((req, res) => {
+    res.send("Welcome to the post");
+  })
+  .put((req, res) => {
+    res.send("Welcome to the put");
+  });
 
 app.post("/", (req, res) => {
   console.log(req.body);
