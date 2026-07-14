@@ -34,10 +34,24 @@ app.use(express.json());
 // });
 
 // 2: so ekhon amra (route) method somporke janbo, ekhane route method dara app.route use kore nicher ek route e sob get,put,post, etc sob ek route e korte parbo
+// app
+//   .route("/about/mission")
+//   .get((req, res) => {
+//     res.send("Welcome to the get");
+//   })
+//   .post((req, res) => {
+//     res.send("Welcome to the post");
+//   })
+//   .put((req, res) => {
+//     res.send("Welcome to the put");
+//   });
+
+// 3: ekhon amra template engine jetake ejs bola hoy seta use korbo, tar age npm i ejs korte hobe then
+app.set("view engine", "ejs");
 app
   .route("/about/mission")
   .get((req, res) => {
-    res.send("Welcome to the get");
+    res.render("page/about");
   })
   .post((req, res) => {
     res.send("Welcome to the post");
